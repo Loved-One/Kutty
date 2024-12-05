@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pookie Hamster - Flowers for You</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            background: linear-gradient(to right, #FF69B4, #FF1493); /* Pink gradient */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: Arial, sans-serif;
+            color: white;
+            text-align: center;
+        }
+        .container {
+            position: relative;
+            display: inline-block;
+        }
+        .hamster-img {
+            width: 300px;
+            height: auto;
+            border-radius: 15px;
+            cursor: pointer;
+            transition: transform 0.3s ease-in-out;
+        }
+        .hamster-img:hover {
+            transform: scale(1.1);
+        }
+        .message {
+            margin-top: 20px;
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+        .audio {
+            display: none; /* Initially hide audio */
+        }
+        .button {
+            margin-top: 20px;
+            padding: 15px 30px;
+            font-size: 1.2rem;
+            background-color: #FF1493; /* Button pink color */
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .button:hover {
+            background-color: #FF69B4; /* Lighter pink when hovered */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <img src="pookie.jpeg" alt="Pookie Hamster" class="hamster-img" id="hamsterImage">
+        <p class="message">I ain't letting you die</p>
+        <audio id="audio" class="audio">
+            <source src="pookie_audio.mp3" type="audio/mp3">
+            Your browser does not support the audio element.
+        </audio>
+        <button class="button" id="redirectButton">For you ji</button>
+    </div>
+
+    <script>
+        // Redirect to blooming flowers page when button is clicked
+        document.getElementById('redirectButton').addEventListener('click', function() {
+            window.location.href = "blooming_flowers.html"; // Replace with your page URL
+        });
+
+        // Play audio when hamster image is clicked and redirect after audio ends
+        document.getElementById('hamsterImage').addEventListener('click', function() {
+            var audio = document.getElementById('audio');
+            audio.play();
+
+            // Redirect to "blooming flowers" page after audio is played
+            audio.onended = function() {
+                window.location.href = "blooming_flowers.html"; // Replace with your page URL
+            };
+        });
+    </script>
+</body>
+</html>
